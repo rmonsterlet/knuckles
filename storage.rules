@@ -1,0 +1,12 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /knuckes {
+      match /{episode} {
+        allow read, write
+      }
+    }
+    match /{allPaths=**} {
+      allow read, write: if request.auth!=null;
+    }
+  }
+}

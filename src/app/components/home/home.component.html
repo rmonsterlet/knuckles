@@ -1,0 +1,80 @@
+<div class="view container full-bg-img">
+	<div class="column">
+		<div class="c-card-ct row">
+			<mat-progress-bar *ngIf="!shifts.length" mode="indeterminate"></mat-progress-bar>
+			<mdb-card *ngIf="shifts.length" cascade="true" narrower="true" class="c-card">
+				<div class="view-cascade gradient-card-header blue-gradient">
+					<h4 class="card-title">Shifts</h4>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>
+								<mdb-icon fas icon="gem" class="mr-2 blue-text" aria-hidden="true"></mdb-icon>Planning Id
+							</th>
+							<th>
+								<mdb-icon fas icon="gem" class="mr-2 teal-text" aria-hidden="true"></mdb-icon>User Id
+							</th>
+							<th>
+								<mdb-icon fas icon="clock" class="mr-2 indigo-text" aria-hidden="true"></mdb-icon>Start date
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let shift of shifts">
+							<th scope="row">{{ shift.id }}</th>
+							<td>
+								<mdb-icon far class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ shift.planning_id }}
+							</td>
+							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ shift.user_id }}
+							</td>
+							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ shift.start_date }}
+							</td>
+							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>
+								<button [routerLink]="['upsert-shift', shift.id]" mdbBtn type="button" gradient="peach" rounded="true" mdbWavesEffect>Edit</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</mdb-card>
+			<mat-progress-bar *ngIf="!workers.length" mode="indeterminate"></mat-progress-bar>
+			<mdb-card *ngIf="workers.length" cascade="true" narrower="true" class="c-card">
+				<div class="view-cascade gradient-card-header blue-gradient">
+					<h4 class="card-title">Workers</h4>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>
+								<mdb-icon fas icon="leaf" class="mr-2 blue-text" aria-hidden="true"></mdb-icon>First name
+							</th>
+							<th>
+								<mdb-icon fas icon="leaf" class="mr-2 teal-text" aria-hidden="true"></mdb-icon>Status
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let worker of workers">
+							<th scope="row">{{ worker.id }}</th>
+							<td>
+								<mdb-icon far class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ worker.first_name }}
+							</td>
+							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ worker.status }}
+							</td>
+							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>
+								<button [routerLink]="['upsert-worker', worker.id]" mdbBtn type="button" gradient="peach" rounded="true" mdbWavesEffect>Edit</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</mdb-card>
+		</div>
+	</div>
+</div>

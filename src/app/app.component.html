@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue-gradient scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong>Knuckles & Cie</strong></a>
+    <button class="navbar-toggler" type="button" (click)="menuExpanded = !menuExpanded" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div *ngIf="menuExpanded" class="navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active">Shift List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['upsert-shift', '']" routerLinkActive="active">Add a shift</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['upsert-worker', '']" routerLinkActive="lexique">Add a worker</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:romain.monsterlet@gmail.com">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openTab('https://www.facebook.com/romain.monsterlet')"><i
+              class="fab fa-facebook-f"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openTab('https://twitter.com/rmonsterlet')"><i class="fab fa-twitter"></i></a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link"><i class="fab fa-instagram"></i></a>
+        </li>-->
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

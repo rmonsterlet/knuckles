@@ -1,0 +1,26 @@
+<mdb-card cascade="true" narrower="true">
+  <div class="view-cascade gradient-card-header blue-gradient">
+    <h4 class="card-title">{{ id ? 'Edit' : 'Add'}} worker</h4>
+  </div>
+  <mdb-card-body cascade="true" class="text-center">
+    <mat-card-content>
+      <form [formGroup]="workerForm">
+        <div>
+          <mat-form-field>
+            <input matInput formControlName="first_name" placeholder="First name" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" name="status">
+              <mat-option *ngFor="let status of statuses" [value]="status.value">
+                {{status.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button [disabled]="!workerForm.valid" color="primary" mat-raised-button (click)="validate()">Ok</button>
+        </div>
+        <mat-progress-bar *ngIf="(upload$ | async)" mode="indeterminate"></mat-progress-bar>
+      </form>
+    </mat-card-content>
+  </mdb-card-body>
+</mdb-card>
