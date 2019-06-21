@@ -41,8 +41,8 @@ export class UpsertShiftComponent implements OnInit {
           const data = this.shiftRef.data();
           this.shift = {
             ...data,
-            start_date: moment(data.start_date).format('L'),
-          }
+            start_date: moment(data.start_date).toDate(),
+          };
           this.shiftForm = this.formBuilder.group(this.shift);
         });
       }

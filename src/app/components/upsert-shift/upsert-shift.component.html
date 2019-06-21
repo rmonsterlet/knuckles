@@ -13,11 +13,14 @@
             <input type="number" matInput formControlName="user_id" placeholder="User Id" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" name="start_date" [value]="shift.start_date" formControlName="start_date" placeholder="Start date (DD/MM/YYYY)" required>
+            <input matInput [matDatepicker]="picker" name="start_date" formControlName="start_date"
+              placeholder="Start date (DD/MM/YYYY)" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <button [disabled]="!shiftForm.valid" color="primary" mat-raised-button (click)="validate()">Ok</button>
+          <button [disabled]="!shiftForm.valid" (click)="validate()" mdbBtn type="button" gradient="peach"
+            rounded="true" mdbWavesEffect>Ok
+          </button>
         </div>
         <mat-progress-bar *ngIf="(upload$ | async)" mode="indeterminate"></mat-progress-bar>
       </form>

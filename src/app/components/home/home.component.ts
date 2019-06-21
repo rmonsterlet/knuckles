@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   public shifts = [];
   public workers = [];
-  public commission;
+  public commission = {};
 
   constructor(
   ) { }

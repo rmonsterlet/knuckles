@@ -17,7 +17,9 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <button [disabled]="!workerForm.valid" color="primary" mat-raised-button (click)="validate()">Ok</button>
+          <button [disabled]="!workerForm.valid" (click)="validate()" mdbBtn type="button" gradient="peach"
+            rounded="true" mdbWavesEffect>Ok
+          </button>
         </div>
         <mat-progress-bar *ngIf="(upload$ | async)" mode="indeterminate"></mat-progress-bar>
       </form>
