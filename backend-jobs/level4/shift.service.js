@@ -13,10 +13,9 @@ $$.getShiftPriceAndPdgFee = (status, startDate) => {
 	let date = new Date(startDate);
 	if (isNaN(date.getDay())) throw new Error(`Invalid shift's start date ${startDate}`);
 	const isDouble = date.getDay() === 0 || date.getDay() === 6;
-	const fullPrice = isDouble ? constants.STATUS_PRICES[status] * 2 : constants.STATUS_PRICES[status];
+	const price = isDouble ? constants.STATUS_PRICES[status] * 2 : constants.STATUS_PRICES[status];
 	const pdgFee = (status === constants.STATUS.INTERIM) ?
-		constants.PDG_FEE_PER_INTERIM_SHIFT :
-		fullPrice * constants.PDG_FEE_PER_SHIFT_RATE;
-	const price = fullPrice - pdgFee;
+		price * constants.PDG_FEE_PER_SHIFT_RATE + constants.PDG_FEE_PER_INTERIM_SHIFT :
+		price * constants.PDG_FEE_PER_SHIFT_RATE;
 	return [price, pdgFee];
 }

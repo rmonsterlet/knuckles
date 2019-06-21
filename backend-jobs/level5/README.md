@@ -8,3 +8,8 @@ We are expecting a link to a hosted application that enable us to:
 - consult shifts
 
 The application should be as simple as possible (for example, authentication is not expected).
+
+# Answer (rmonsterlet)
+See: 
+https://knuckles-and-cie.firebaseapp.com/
+https://github.com/rmonsterlet/knuckles
