@@ -4,7 +4,7 @@
 			<mat-progress-bar *ngIf="!shifts.length" mode="indeterminate"></mat-progress-bar>
 			<mdb-card *ngIf="shifts.length" cascade="true" narrower="true" class="c-card">
 				<div class="view-cascade gradient-card-header blue-gradient">
-					<h4 class="card-title">Shifts</h4>
+					<h4 class="card-title">Shifts (Interim Shifts : {{ commission.interim_shifts }})</h4>
 				</div>
 				<table class="table">
 					<thead>
@@ -35,7 +35,8 @@
 							</td>
 							<td>
 								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>
-								<button [routerLink]="['upsert-shift', shift.id]" mdbBtn type="button" gradient="peach" rounded="true" mdbWavesEffect>Edit</button>
+								<button [routerLink]="['upsert-shift', shift.id]" mdbBtn type="button" gradient="peach" rounded="true"
+									mdbWavesEffect>Edit</button>
 							</td>
 						</tr>
 					</tbody>
@@ -44,7 +45,7 @@
 			<mat-progress-bar *ngIf="!workers.length" mode="indeterminate"></mat-progress-bar>
 			<mdb-card *ngIf="workers.length" cascade="true" narrower="true" class="c-card">
 				<div class="view-cascade gradient-card-header blue-gradient">
-					<h4 class="card-title">Workers</h4>
+					<h4 class="card-title">Workers (PDG fee : {{ commission.pdg_fee }})</h4>
 				</div>
 				<table class="table">
 					<thead>
@@ -55,6 +56,9 @@
 							</th>
 							<th>
 								<mdb-icon fas icon="leaf" class="mr-2 teal-text" aria-hidden="true"></mdb-icon>Status
+							</th>
+							<th>
+								<mdb-icon fas icon="leaf" class="mr-2 teal-text" aria-hidden="true"></mdb-icon>Price
 							</th>
 						</tr>
 					</thead>
@@ -68,8 +72,12 @@
 								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ worker.status }}
 							</td>
 							<td>
+								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>{{ worker.price }}
+							</td>
+							<td>
 								<mdb-icon fas class="mr-2 grey-text" aria-hidden="true"></mdb-icon>
-								<button [routerLink]="['upsert-worker', worker.id]" mdbBtn type="button" gradient="peach" rounded="true" mdbWavesEffect>Edit</button>
+								<button [routerLink]="['upsert-worker', worker.id]" mdbBtn type="button" gradient="peach" rounded="true"
+									mdbWavesEffect>Edit</button>
 							</td>
 						</tr>
 					</tbody>

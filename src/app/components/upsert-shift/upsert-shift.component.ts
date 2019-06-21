@@ -19,7 +19,7 @@ export class UpsertShiftComponent implements OnInit {
   public shift;
   private shiftRef;
   private shiftsRef = firebase.firestore().collection('shift');
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -35,8 +35,8 @@ export class UpsertShiftComponent implements OnInit {
     this.shiftForm = this.formBuilder.group(this.shift);
     this.route.params.subscribe(params => {
       this.id = +params['id'];
-      if(this.id) {
-        this.shiftsRef.where('id', '==', this.id).get().then(({ docs }) => {
+      if (this.id) {
+        this.shiftsRef.where('id', '==', this.id).get().then(({ docs }: any) => {
           this.shiftRef = docs[0];
           const data = this.shiftRef.data();
           this.shift = {

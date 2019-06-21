@@ -41,13 +41,13 @@ export class UpsertWorkerComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       if(this.id) {
-       this.workersRef.where('id', '==', this.id).get().then(({ docs }) => {
+       this.workersRef.where('id', '==', this.id).get().then(({ docs }: any) => {
           this.workerRef = docs[0];
           this.worker = this.workerRef.data();
           this.workerForm = this.formBuilder.group(this.worker);
         });
       }
-    }); 
+    });
   }
 
   public validate() {
